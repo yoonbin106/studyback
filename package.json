@@ -26,11 +26,6 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.2",
     "mysql2": "^3.11.5",
-<<<<<<< HEAD
-    "nestjs": "^0.0.1",
-    "react-native": "^0.76.5",
-=======
->>>>>>> 3fb8b399ba6d716a6daad9307925d4c967eeacda
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.20"
