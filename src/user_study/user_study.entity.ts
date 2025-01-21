@@ -7,9 +7,9 @@ export class UserStudy {
   @PrimaryGeneratedColumn()
   user_study_id: number; // PK
 
-  @ManyToOne(() => User, (user) => user.user_studies, { onDelete: 'CASCADE' })
+  @ManyToOne(() => User, (user) => user.studies, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'user_id' }) // FK
-  user: User; // FK
+  user: User;
 
   @Column({type:'int'})
   user_study_num: number;

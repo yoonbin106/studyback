@@ -1,4 +1,5 @@
 // src/user/user.entity.ts
+import { Token } from 'src/token/token.entity';
 import { UserStudy } from 'src/user_study/user_study.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
@@ -23,5 +24,9 @@ export class User {
   create_time: Date;
 
   @OneToMany(() => UserStudy, (userStudy) => userStudy.user)
-  user_studies: UserStudy[];
+  studies: UserStudy[];
+
+  @OneToMany(() => Token, (token) => token.user)
+  tokens: Token[];
+  
 }

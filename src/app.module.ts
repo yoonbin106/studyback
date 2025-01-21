@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { User } from './user/user.entity';
 import { UserStudy } from './user_study/user_study.entity';
+import { Token } from './token/token.entity';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { UserStudy } from './user_study/user_study.entity';
       username: 'root',
       password: 'root',
       database: 'study_app',
-      entities: [User, UserStudy],
+      entities: [User, UserStudy, Token],
       synchronize: true,
     }),
 
