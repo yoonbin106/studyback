@@ -6,6 +6,7 @@ import { DataController } from './data/data.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { User } from './user/user.entity';
+import { UserStudy } from './user_study/user_study.entity';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { User } from './user/user.entity';
       username: 'root',
       password: 'root',
       database: 'study_app',
-      entities: [User],
+      entities: [User, UserStudy],
       synchronize: true,
     }),
 
