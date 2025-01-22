@@ -2,32 +2,35 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { DataController } from './data/data.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { User } from './user/user.entity';
+import { Chatroom } from './chat/chatroom.entity';
+import { ChatMessage } from './chat/chat_messages.entity';
+import { ChatMessageRead } from './chat/chat_message_read.entity';
+import { ChatModule } from './chat/chat.module';
+import { HomeModule } from './home/home.module';
 import { UserStudy } from './user_study/user_study.entity';
 import { Token } from './token/token.entity';
 import { Study } from './study/study.entity';
 
 @Module({
   imports: [
-    // TypeORM 설정
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'root',
+      password: '1234',
       database: 'study_app',
-      entities: [User, UserStudy, Token, Study],
+      entities: [User, Chatroom, ChatMessageRead, ChatMessage, Token, Study,UserStudy],
       synchronize: true,
     }),
-
-    // UserModule 임포트
     UserModule,
+    ChatModule,
+    HomeModule,
   ],
-  controllers: [AppController, DataController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
