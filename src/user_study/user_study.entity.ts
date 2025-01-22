@@ -12,7 +12,7 @@ export class UserStudy {
   @JoinColumn({ name: 'user_id' }) // 외래 키 컬럼 이름 설정
   user: User;
 
-  @Column({ type: 'int', name: 'user_study_num', nullable: false })
+  @Column({ type: 'int', nullable: false })
   userStudyNum: number; // 추가적인 숫자 정보
 
   @OneToMany(() => Study, (study) => study.userStudy) // Study와 One-to-Many 관계 설정

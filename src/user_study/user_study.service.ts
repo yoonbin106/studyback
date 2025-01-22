@@ -13,7 +13,7 @@ export class UserService {
 
   async createUserStudy(user_study_num: number): Promise<UserStudy> {
     const userStudy = new UserStudy();
-    userStudy.user_study_num = user_study_num;
+    userStudy.userStudyNum = user_study_num;
     return this.userStudyRepository.save(userStudy);
   }
 
