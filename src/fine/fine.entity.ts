@@ -1,14 +1,26 @@
 // src/user/user.entity.ts
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Study } from 'src/study/study.entity';
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from 'typeorm';
 
 @Entity()
-export class User {
+export class Fine {
   @PrimaryGeneratedColumn()
-  id: number;
+  fine_id: number;
+
+  @ManyToOne(() => Study, (study) => study.fines, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'user_id' }) // FK
+  study: Study;
 
   @Column()
-  name: string;
+  fine_name: string;
 
   @Column()
-  email: string;
+  fine_date: string;
+
+  @Column()
+  fine_amount: string;
+
+  @Column()
+  fine_status: string;
+
 }
