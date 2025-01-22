@@ -12,8 +12,8 @@ export class UserStudy {
   @JoinColumn({ name: 'user_id' }) // FK
   user: User;
 
-  @Column({type:'int'})
-  user_study_num: number;
+  @Column({ type: 'int', nullable: false })
+  userStudyNum: number; // 추가적인 숫자 정보
 
   @OneToMany(() => Study, (study) => study.userStudy) // Study와 One-to-Many 관계 설정
   studies: Study[]; // 여러 개의 Study와 연결
