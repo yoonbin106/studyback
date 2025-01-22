@@ -7,6 +7,7 @@ import { ChatMessageRead } from './chat_message_read.entity';
 import { UserService } from 'src/user/user.service';
 import { User } from 'src/user/user.entity';
 
+
 // 채팅 관련 비즈니스 로직 구현
 @Injectable()
 export class ChatService {
@@ -21,7 +22,8 @@ export class ChatService {
     private chatMessageReadRepository: Repository<ChatMessageRead>, // ChatMessageRead 엔터티를 위한 Repository
 
     @InjectRepository(User)
-    private userRepository: Repository<User>, // User 엔터티를 위한 Repository
+    private userRepository: Repository<User>
+
   ) {}
 
   // 새로운 채팅방 생성

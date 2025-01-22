@@ -23,7 +23,7 @@ import { Study } from './study/study.entity';
       username: 'root',
       password: '1234',
       database: 'study_app',
-      entities: [User],
+      entities: [User, Chatroom, ChatMessageRead, ChatMessage, Token, Study,UserStudy],
       synchronize: true,
     }),
     UserModule,
