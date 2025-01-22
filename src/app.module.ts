@@ -10,6 +10,9 @@ import { ChatMessage } from './chat/chat_messages.entity';
 import { ChatMessageRead } from './chat/chat_message_read.entity';
 import { ChatModule } from './chat/chat.module';
 import { HomeModule } from './home/home.module';
+import { UserStudy } from './user_study/user_study.entity';
+import { Token } from './token/token.entity';
+import { Study } from './study/study.entity';
 
 @Module({
   imports: [
@@ -20,7 +23,7 @@ import { HomeModule } from './home/home.module';
       username: 'root',
       password: '1234',
       database: 'study_app',
-      entities: [User,Chatroom,ChatMessage,ChatMessageRead],
+      entities: [User,Chatroom,ChatMessage,ChatMessageRead,User, UserStudy, Token, Study],
       synchronize: true,
     }),
     UserModule,
