@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 import { User } from './user/user.entity';
 import { UserStudy } from './user_study/user_study.entity';
 import { Token } from './token/token.entity';
+import { Study } from './study/study.entity';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { Token } from './token/token.entity';
       username: 'root',
       password: 'root',
       database: 'study_app',
-      entities: [User, UserStudy, Token],
+      entities: [User, UserStudy, Token, Study],
       synchronize: true,
     }),
 
