@@ -11,10 +11,10 @@ export class UserService {
     private userRepository: Repository<User>,
   ) {}
 
-  async createUser(name: string, email: string): Promise<User> {
+  async createUser(nickname: string, password: string): Promise<User> {
     const user = new User();
-    user.name = name;
-    user.email = email;
+    user.nickname = nickname;
+    user.password = password;
     return this.userRepository.save(user);
   }
 

@@ -1,4 +1,4 @@
-// src/user/user.module.ts
+// src/user_study/user_study.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user.entity';
