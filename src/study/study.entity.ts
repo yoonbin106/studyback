@@ -1,7 +1,6 @@
 // src/study/study.entity.ts
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { UserStudy } from '../user_study/user_study.entity'; // UserStudy 임포트
-import { Fine } from 'src/fine/fine.entity';
 
 @Entity('study') // 테이블명 설정
 export class Study {
@@ -30,6 +29,4 @@ export class Study {
   @Column({ name: 'study_calendar', type: 'varchar', length: 2000, nullable: true })
   studyCalendar: string | null;
 
-  @OneToMany(()=>Fine, (fine)=>fine.fine_id)
-  fines: Fine[];
 }

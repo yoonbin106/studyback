@@ -13,6 +13,7 @@ import { HomeModule } from './home/home.module';
 import { UserStudy } from './user_study/user_study.entity';
 import { Token } from './token/token.entity';
 import { Study } from './study/study.entity';
+import { HomeController } from './home/home.controller';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { Study } from './study/study.entity';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '1234',
+      password: 'root',
       database: 'study_app',
       entities: [User, Chatroom, ChatMessageRead, ChatMessage, Token, Study,UserStudy],
       synchronize: true,
@@ -30,7 +31,7 @@ import { Study } from './study/study.entity';
     ChatModule,
     HomeModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController,HomeController],
   providers: [AppService],
 })
 export class AppModule {}
