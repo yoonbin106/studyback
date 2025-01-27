@@ -14,6 +14,7 @@ import { UserStudy } from './user_study/user_study.entity';
 import { Token } from './token/token.entity';
 import { Study } from './study/study.entity';
 import { HomeController } from './home/home.controller';
+import { Fine } from './fine/fine.entity';
 
 @Module({
   imports: [
@@ -24,7 +25,7 @@ import { HomeController } from './home/home.controller';
       username: 'root',
       password: 'root',
       database: 'study_app',
-      entities: [User, Chatroom, ChatMessageRead, ChatMessage, Token, Study,UserStudy],
+      entities: [User, Chatroom, ChatMessageRead, ChatMessage, Token, Study,UserStudy, Fine],
       synchronize: true,
     }),
     UserModule,
