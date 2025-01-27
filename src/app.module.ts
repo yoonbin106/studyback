@@ -25,7 +25,7 @@ import { Fine } from './fine/fine.entity';
       username: 'root',
       password: 'root',
       database: 'study_app',
-      entities: [User, Chatroom, ChatMessageRead, ChatMessage, Token, Study,UserStudy, Fine],
+      entities: [__dirname + '/**/*.entity.{js,ts}'],
       synchronize: true,
     }),
     UserModule,
