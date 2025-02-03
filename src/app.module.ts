@@ -13,6 +13,8 @@ import { HomeModule } from './home/home.module';
 import { UserStudy } from './user_study/user_study.entity';
 import { Token } from './token/token.entity';
 import { Study } from './study/study.entity';
+import { HomeController } from './home/home.controller';
+import { Fine } from './fine/fine.entity';
 
 @Module({
   imports: [
@@ -23,14 +25,14 @@ import { Study } from './study/study.entity';
       username: 'root',
       password: 'root',
       database: 'study_app',
-      entities: [User, Chatroom, ChatMessageRead, ChatMessage, Token, Study,UserStudy],
+      entities: [__dirname + '/**/*.entity.{js,ts}'],
       synchronize: true,
     }),
     UserModule,
     ChatModule,
     HomeModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController,HomeController],
   providers: [AppService],
 })
 export class AppModule {}
