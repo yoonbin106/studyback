@@ -21,7 +21,7 @@ import { Study } from './study/study.entity';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '1234',
+      password: 'root',
       database: 'study_app',
       entities: [User, Chatroom, ChatMessageRead, ChatMessage, Token, Study,UserStudy],
       synchronize: true,
