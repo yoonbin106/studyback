@@ -61,4 +61,10 @@ export class UserService {
     return {message:'로그아웃 완료'};
   }
 
+  // 사용자 정보 가져오는 메소드
+  async getUserById(userId:number): Promise<User>{
+    return this.userRepository.findOne({where:{user_id:userId}});
+
+  }
+
 }

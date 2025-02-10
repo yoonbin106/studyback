@@ -15,7 +15,6 @@ import { UserModule } from 'src/user/user.module';
     ],
     controllers: [ChatController],
     providers: [ChatService],
-    exports: [ChatService],
 })
 
 export class ChatModule {}

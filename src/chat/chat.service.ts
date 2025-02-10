@@ -5,7 +5,6 @@ import { Chatroom } from './chatroom.entity';
 import { ChatMessage } from './chat_messages.entity';
 import { ChatMessageRead } from './chat_message_read.entity';
 import { UserService } from 'src/user/user.service';
-import { User } from 'src/user/user.entity';
 
 
 // 채팅 관련 비즈니스 로직 구현
@@ -21,9 +20,7 @@ export class ChatService {
     @InjectRepository(ChatMessageRead)
     private chatMessageReadRepository: Repository<ChatMessageRead>, // ChatMessageRead 엔터티를 위한 Repository
 
-    @InjectRepository(User)
-    private userRepository: Repository<User>
-
+    private userService: UserService,
   ) {}
 
   // 새로운 채팅방 생성
@@ -49,7 +46,7 @@ export class ChatService {
    async markMessageAsRead(chatMessageId: number, userId: number): Promise<ChatMessageRead> {
     // ChatMessage와 User 엔터티 조회
     const chatMessage = await this.chatMessageRepository.findOneByOrFail({ chat_messages_id: chatMessageId });
-    const user = await this.userRepository.findOneByOrFail({ user_id: userId });
+    const user = await this.userService.getUserById( userId );
 
   //읽음 상태 엔터티 생성
   const readStatus = this.chatMessageReadRepository.create({
@@ -73,5 +70,11 @@ export class ChatService {
   // 채팅방 삭제
   async deleteChatroom(chatroomId: number): Promise<void> {
     await this.chatroomRepository.delete({ chatroom_id: chatroomId });
+  }
+
+  // UserReposiroy 사용
+  async getUserId(userId: number){
+    const user = await this.userService.getUserById(userId);
+    return user;
   }
 }
