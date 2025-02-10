@@ -16,6 +16,46 @@ export class UserService {
     private jwtService: JwtService,
   ) {}
 
+  // 회원가입
+  async create(nickname:string, password:string): Promise<User>{
+    // 이미 존재하는 사용자인지 확인
+    const existUser = await this.userRepository.findOne({
+      where: [{nickname}],
+    });
+
+    if (existUser) {
+      throw new HttpException(
+        '이미 존재하는 사용자입니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    // 비밀번호 해싱
+    const hashedPassword= await bcrypt.hash(password,10);
+
+    const newUser= this.userRepository.create({
+      nickname,
+      password: hashedPassword,
+
+    });
+
+    // 사용자 저장
+    return this.userRepository.save(newUser);
+
+
+  }
+
+  
+    // 사용자 삭제(유저 id로)
+    async delete(userId:number): Promise<void>{
+      const user = await this.userRepository.findOne({where:{user_id:userId}})
+      if(!user) {
+        throw new HttpException('사용자를 찾을 수 없습니다.', HttpStatus.NOT_FOUND);
+      }
+      await this.userRepository.remove(user);
+    }
+
+
   // 로그인
   async login(nickname:string, password:string, userAgent:string){
     

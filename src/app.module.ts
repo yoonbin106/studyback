@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { ChatModule } from './chat/chat.module';
 import { HomeModule } from './home/home.module';
 import { HomeController } from './home/home.controller';
+import { UserController } from './user/user.controller';
 
 @Module({
   imports: [
@@ -24,7 +25,7 @@ import { HomeController } from './home/home.controller';
     ChatModule,
     HomeModule,
   ],
-  controllers: [AppController,HomeController],
+  controllers: [AppController,HomeController, UserController],
   providers: [AppService],
 })
 export class AppModule {}
