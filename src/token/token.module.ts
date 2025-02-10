@@ -3,11 +3,17 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Token } from './token.entity';
 import { TokenService } from './token.service';
-import { TokenController } from './token.controller';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Token])],
+  imports: [
+    TypeOrmModule.forFeature([Token]),
+    JwtModule.register({
+      secret: 'your-secret-key',
+      signOptions: {expiresIn: '60s'}
+    }),
+  ],
   providers: [TokenService],
-  controllers: [TokenController],
+  exports: [TokenService],
 })
 export class TokenModule {}

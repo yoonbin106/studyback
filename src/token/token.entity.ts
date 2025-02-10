@@ -11,23 +11,19 @@ export class Token {
   @JoinColumn({ name: 'user_id' }) // FK
   user: User;
 
-  @Column({type:'timestamp', default:()=>'CURRENT_TIMESTAMP'})
-  expired_date: Date;
+  @Column({type:'varchar', length:255})
+  token_value: string; //리프레시 토큰 저장
 
-  // 만료시간이 만료날짜랑 중복될것같은데 지울까 ..? >> 토큰 발급일자를 넣자!
+  @Column({type:'varchar', length:255}) 
+  user_agent: string; //로그인한 기기 정보 저장
+
+  @Column({type:'timestamp', default:()=>'CURRENT_TIMESTAMP'})
+  expired_date: Date; //만료일
+
   //@Column({type:'timestamp', default:()=>'CURRENT_TIMESTAMP'})
   //expired_time: Date; 
 
-  @Column({type:'timestamp', default:()=>'CURRENT_TIMESTAMP'})
-  create_date: Date;
-
   @Column({type:'varchar', length:255, default:'active'})
-  status: string;
-
-  @Column({type:'varchar', length:255})
-  token_value: string;
-
-  @Column({type:'varchar', length:255})
-  user_agent: string;
+  status: string; // 속성값: active, inactive
   
 }

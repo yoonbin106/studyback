@@ -1,3 +1,13 @@
+
+# 설치 필요한 패키지
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt bcrypt
+npm install @types/passport-jwt @types/bcrypt -D
+
+
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
