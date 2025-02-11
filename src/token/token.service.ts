@@ -41,7 +41,8 @@ export class TokenService {
     });
 
     if(!token) throw new Error('유효하지 않은 Refresh Token입니다.');
-
+    if (token.expired_date < new Date()) throw new Error('Refresh Token이 만료되었습니다.');
+    
     const user = token.user;
     const payload = {user_id: user.user_id, nickname: user.nickname};
     return this.jwtService.sign(payload, {expiresIn: '1h'});

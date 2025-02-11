@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Token } from './token.entity';
 import { TokenService } from './token.service';
 import { JwtModule } from '@nestjs/jwt';
+import { TokenController } from './token.controller';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { JwtModule } from '@nestjs/jwt';
       signOptions: {expiresIn: '60s'}
     }),
   ],
+  controllers: [TokenController],
   providers: [TokenService],
   exports: [TokenService],
 })

@@ -22,7 +22,10 @@ export class TokenController {
       const newAccessToken= await this.tokenService.validateRefreshToken(refresh_token);
       return {access_token: newAccessToken};
     } catch (err){
-      throw new Error('자동 로그인 실패');
+      throw new HttpException(
+        '자동 로그인 실패: 유효하지 않은 토큰입니다.',
+        HttpStatus.UNAUTHORIZED
+      );
     }
   }
 

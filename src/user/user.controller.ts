@@ -1,5 +1,5 @@
 // src/user/user.controller.ts
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Headers, Param, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -12,6 +12,12 @@ export class UserController {
     return this.userService.create(nickname, password);
   }
 
+  // 로그인 처리
+  @Post('/login')
+  async login(@Body() {nickname, password, userAgent}:{nickname:string, password:string, userAgent: string},){
+    return this.userService.login(nickname, password, userAgent);
+  }
+  
   // 사용자 조회(유저 id로)
   @Get(':user_id')
   async readUser(@Param('user_id') user_id:number){
