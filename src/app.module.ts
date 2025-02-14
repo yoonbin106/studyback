@@ -13,7 +13,7 @@ import { UserController } from './user/user.controller';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'studydb', //localhost로 바꾸세요
+      host: 'localhost', 
       port: 3306,
       username: 'root',
       password: 'root',
